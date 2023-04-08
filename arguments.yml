@@ -1,0 +1,2 @@
+jwt_timeout: 120
+jwt_secret: my_super_secret_here

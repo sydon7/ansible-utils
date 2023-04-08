@@ -1,0 +1,17 @@
+- hosts: "{{ device }}"
+
+  tasks:
+
+   - name: check linux version
+     shell: lsb_release -a
+     register: myversion
+     changed_when: False
+
+   - name: print linux version
+     debug: var=myversion.stdout
+
+   - name: save version in a varible
+     set_fact:
+         returnvar : "{{ myversion.stdout }}"
+         # remember to set cacheable, so the runner can find it
+         cacheable: yes

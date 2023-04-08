@@ -1,0 +1,16 @@
+- hosts: "{{ device }}"
+
+  tasks:
+
+   - name: check ubuntu version
+     shell: lsb_release -a
+     register: foo
+     changed_when: False
+
+   - name: print version
+     debug: var=foo.stdout
+
+   - name: save version
+     set_fact:
+         returnvar : "{{ foo.stdout }}"
+         cacheable: yes
