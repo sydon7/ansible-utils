@@ -44,8 +44,16 @@ paths:
             application/json:
               schema: 
                   $ref: '#/components/schemas/linux_version'
-
+security:
+  - bearerAuth: [] 
+   
 components:
+  securitySchemes:
+    bearerAuth:            # arbitrary name for the security scheme
+      type: http
+      scheme: bearer
+      bearerFormat: JWT    # optional, arbitrary value for documentation purposes
+
   schemas:
     linux_version:
       type: object

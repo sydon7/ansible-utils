@@ -1,2 +1,5 @@
 jwt_timeout: 120
 jwt_secret: my_super_secret_here
+logger_directory: /tmp/testapp.log
+logger_bytes: 100000
+logger_count: 5

@@ -142,14 +142,24 @@ def getdatahash():
     """ this function laods in key/value pairs from a file
         notably the username/password for the database """
 
-    cfgfile = "arguments.yml"
+    #passfile=os.path.expanduser('~/.ansiblesecrets_api')
+    #fileIN = open(passfile, "r")
+    #vaultpassword = fileIN.readline().rstrip()
 
+    cfgfile = "arguments.yml"
+    #loader = DataLoader()
+
+    #default_vault_ids = C.DEFAULT_VAULT_IDENTITY_LIST
+    #vault_ids = default_vault_ids
+    #loader.set_vault_secrets([('default',VaultSecret(vaultpassword.encode('utf-8')))])
+    #data = loader.load_from_file(cfgfile)
     with open(cfgfile, 'r') as file:
         data = yaml.safe_load(file)
     return data
 
 
 datahash = getdatahash()
+#print(datahash)
 
 # create a logger
 logging.basicConfig(
